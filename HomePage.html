@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <title>Phonebook </title>
+
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/homepage.css" rel="stylesheet">
+</head>
+
+<body>
+<!-- navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="HomePage.html">
+            <img alt="PhoneBook" height="70" src="img/emblem.png" width="70">
+            Home
+        </a>
+        <div class="navbar-brand">
+            <div class="navbar-nav">
+                <a class="nav-link active" href="AboutApp.html">About app</a>
+            </div>
+        </div>
+        <span class="navbar-brand">
+            <span class="navbar-nav">
+                <a class="nav-link active" href="Profile.html">Profile</a>
+            </span>
+        </span>
+    </div>
+</nav>
+<br/>
+<h3 class="text-center">Your phonebook</h3>
+<!-- table -->
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th class="tableCol" scope="col">Name</th>
+            <th class="tableCol" scope="col">Numbers</th>
+            <th class="favoriteCol" scope="col">Favorite</th>
+            <th class="controlButtons" scope="col">Manage</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th id="contactNumber">1</th>
+            <td>Sebastian</td>
+            <td>
+                <form>
+                    <label for="numbers"></label>
+                    <select id="numbers" name="numbers">
+                        <option value="380955632313">380955632313</option>
+                        <option value="380950542347">380950542347</option>
+                        <option value="380950611232">380950611232</option>
+                    </select>
+                </form>
+            </td>
+            <td class="checkbox">
+                <label for="FavCheck1"></label>
+                <input id="FavCheck1" type="checkbox" value="">
+            </td>
+            <td class="controlButtons">
+                <button class="btn btn-sm btn-primary controlButton">Edit</button>
+                <button class="btn btn-sm btn-danger controlButton">Delete</button>
+            </td>
+        </tr>
+        <tr>
+            <th id="contactNumber2">2</th>
+            <td>Sebastian</td>
+            <td>
+                <form>
+                    <label for="numbers2"></label>
+                    <select id="numbers2" name="numbers2">
+                        <option value="380955632313">380955632313</option>
+                        <option value="380950542347">380950542347</option>
+                        <option value="380950611232">380950611232</option>
+                    </select>
+                </form>
+            </td>
+            <td class="checkbox">
+                <label for="FavCheck2"></label>
+                <input id="FavCheck2" type="checkbox" value="">
+            </td>
+            <td class="controlButtons">
+                <button class="btn btn-sm btn-primary controlButton">Edit</button>
+                <button class="btn btn-sm btn-danger controlButton">Delete</button>
+            </td>
+        </tr>
+        <tr>
+            <th id="contactNumber3">3</th>
+            <td>Sebastian</td>
+            <td>
+                <form>
+                    <label for="numbers3"></label>
+                    <select id="numbers3" name="numbers3">
+                        <option value="380955632313">380955632313</option>
+                        <option value="380950542347">380950542347</option>
+                        <option value="380950611232">380950611232</option>
+                    </select>
+                </form>
+            </td>
+            <td class="checkbox">
+                <label for="FavCheck3"></label>
+                <input id="FavCheck3" type="checkbox" value="">
+            </td>
+            <td class="controlButtons">
+                <button class="btn btn-sm btn-primary controlButton">Edit</button>
+                <button class="btn btn-sm btn-danger controlButton">Delete</button>
+            </td>
+        </tr>
+        <tr>
+            <th id="contactNumber4">4</th>
+            <td>Sebastian</td>
+            <td>
+                <form>
+                    <label for="numbers4"></label>
+                    <select id="numbers4" name="numbers4">
+                        <option value="380955632313">380955632313</option>
+                        <option value="380950542347">380950542347</option>
+                        <option value="380950611232">380950611232</option>
+                    </select>
+                </form>
+            </td>
+            <td class="checkbox">
+                <label for="FavCheck4"></label>
+                <input id="FavCheck4" type="checkbox" value="">
+            </td>
+            <td class="controlButtons">
+                <button class="btn btn-sm btn-primary controlButton">Edit</button>
+                <button class="btn btn-sm btn-danger controlButton">Delete</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<!-- Management menu -->
+<div class="btn-group-vertical" id="buttonTable">
+    <button class="btn btn-outline-primary" type="button">Add a number</button>
+    <button class="btn btn-outline-secondary" type="button">Sort by name</button>
+    <button class="btn btn-outline-success" type="button">Save changes</button>
+</div>
+</body>
+</html>
