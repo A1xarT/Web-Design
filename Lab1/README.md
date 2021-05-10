@@ -1,2 +1,4 @@
-# Web-Design
-Web design labs
+### Любчич Ілля Дмитрович, КВ-82.
+### Розробка статичного інтерфейсу Web-додатка.
+### Загальне завдання: розробити статичні Web-сторінки додатку та перевірити коректне їх відображення на екранах різного розміру.
+https://docs.google.com/document/d/1j7vrKQYwp00bzinwVMRgjBtgt1YYtgVd2jCZ91eA8ac/edit?usp=sharing
