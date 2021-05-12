@@ -8,7 +8,7 @@ if (!localStorage.curUser)
 let model = new Model();
 let view = new View();
 
-view.loadHomePage();
+view.loadHomePage(LUser.findByMail(localStorage.curUser));
 view.bindAddContact(handleAddContact);
 view.bindSortByName(handleSortByName);
 view.bindSortByFavorite(handleSortByFavorite);

@@ -1,5 +1,3 @@
-import LUser from '../model/LUser.js';
-
 export default class View {
 
     bindLogin(handler) {
@@ -42,8 +40,7 @@ export default class View {
         btn.addEventListener('click', handler);
     }
 
-    loadProfile() {
-        let user = LUser.findByMail(localStorage.curUser);
+    loadProfile(user) {
         document.getElementById('name').append(document.createTextNode(user.name));
         document.getElementById('email').append(document.createTextNode(user.email));
         document.getElementById('pass').append(document.createTextNode('********'));
@@ -51,8 +48,7 @@ export default class View {
         document.getElementById('gender').append(document.createTextNode(user.gender));
     }
 
-    loadHomePage() {
-        let user = LUser.findByMail(localStorage.curUser);
+    loadHomePage(user) {
         let tbody = document.getElementById('phoneBookTable')
         for (let i = 0; i < user.records.length; i++) {
             let tr = document.createElement('tr');
