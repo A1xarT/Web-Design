@@ -1,0 +1,28 @@
+#profile-cont {
+    position: absolute;
+    top: 15%;
+    left: 3%;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    max-width: 900px;
+    word-wrap: break-word;
+    background-color: #86b7fe;
+    background-clip: border-box;
+    border: 4px solid rgba(0, 0, 0, .125);
+    border-radius: 10px;
+}
+body {
+    background-color: #bacbe6;
+}
+#aboutArticle {
+    font-size: 20px;
+}
+.whitepages {
+    width: 70%;
+    height: auto;
+}
+#updateProfileButton {
+    position: relative;
+    right: -50%;
+}
