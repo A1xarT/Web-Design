@@ -1,10 +1,14 @@
 const express = require('express');
 const pg = require('pg')
 const app = express(),
-port = 3080;
+    port = 3080;
 
-// place holder for the data
+// initial data
+const con = connectDatabase()
+con.query('select * from _user')
+
 const users = [];
+
 
 app.get('/api/all-users', (req, res) => {
     console.log('api/all-users called .')

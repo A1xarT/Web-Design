@@ -22,12 +22,14 @@
           <img alt="PhoneBook" class="mb-4" src="../assets/img/appName.png">
           <p class="h3 mb-3 fw-normal">Please log in</p>
           <label class="visually-hidden" for="inputEmail"></label>
-          <input autofocus class="form-control" id="inputEmail" placeholder="Email address" required type="email">
+          <input autofocus class="form-control" id="inputEmail" placeholder="Email address" required type="email"
+                 v-model="userMail">
           <label class="visually-hidden" for="inputPassword"></label>
-          <input class="form-control" id="inputPassword" placeholder="Password" required type="password">
+          <input class="form-control" id="inputPassword" placeholder="Password" required type="password"
+                 v-model="password">
           <div class="checkbox mb-3">
             <label>
-              <input id="rememberMe" type="checkbox"> Remember me
+              <input id="rememberMe" type="checkbox" v-model="rememberUser"> Remember me
             </label>
           </div>
           <button class="w-100 btn btn-lg btn-primary" id="loginButton" type="submit" @click="add">Log in</button>
@@ -43,14 +45,32 @@
 <script>
 import {getAllUsers} from '@/services/UserService'
 
+const rmCheck = document.getElementById("rememberMe"),
+    emailInput = document.getElementById("inputEmail");
+if (localStorage.checkbox && localStorage.checkbox !== "") {
+  rmCheck.setAttribute("checked", "checked");
+  emailInput.value = localStorage.username;
+} else {
+  rmCheck.removeAttribute("checked");
+  emailInput.value = "";
+}
 export default {
   name: 'Login',
   data() {
     return {
+      userMail: '',
+      password: '',
+      rememberUser: false,
       users: []
     }
   },
   methods: {
+    logUser() {
+
+    },
+    isRemembered() {
+
+    },
     getAllUsers() {
       getAllUsers().then(response => {
         console.log(response)
@@ -58,7 +78,7 @@ export default {
       })
     },
     showUsers() {
-      alert(this.users)
+      alert(JSON.stringify(this.users))
     },
   },
   mounted() {

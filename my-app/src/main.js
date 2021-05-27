@@ -10,6 +10,3 @@ new Vue({
     store,
     render: h => h(App),
 }).$mount('#app')
-if (router.currentRoute.fullPath !== '/')
-    router.push({name: 'Login'}).then(() => {
-    })
