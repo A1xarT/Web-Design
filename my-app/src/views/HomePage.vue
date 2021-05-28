@@ -3,18 +3,18 @@
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="HomePage.vue">
+        <a class="navbar-brand" href="/homepage">
           <img alt="PhoneBook" height="70" src="../assets/img/emblem.png" width="70">
           Home
         </a>
         <div class="navbar-brand">
           <div class="navbar-nav">
-            <a class="nav-link active" href="AboutApp.vue">About app</a>
+            <a class="nav-link active" href="/aboutapp">About app</a>
           </div>
         </div>
         <span class="navbar-brand">
             <span class="navbar-nav">
-                <a class="nav-link active" href="Profile.vue">Profile</a>
+                <a class="nav-link active" href="/profile">Profile</a>
             </span>
         </span>
       </div>
@@ -42,15 +42,34 @@
       <button class="btn btn-primary" id="addContactButton" type="button">Add a contact</button>
       <button class="btn btn-secondary" id="sortByNameButton" type="button">Sort by name</button>
       <button class="btn btn-dark" id="sortByFavoriteButton" type="button">Sort by favorite</button>
+      <button class="btn btn-dark" @click="findMe">SUUUDAAA ALOAAAAAAAAAs</button>
     </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
+
+import {findByMail} from "@/services/UserService.js";
+
 export default {
   name: 'HomePage',
-  components: {}
+  components: {},
+  mounted() {
+    if (!localStorage.curUser) {
+      this.$router.push('/')
+    }
+  },
+  methods: {
+    async findMe() {
+      // eslint-disable-next-line no-unused-vars
+      let user = {}
+      await findByMail('mail@mailas.ru').then((response) => {
+        if (response)
+          user = response[0]
+      })
+      alert(JSON.stringify(user))
+    }
+  }
 }
 </script>
 <style scoped src="../assets/css/homepage.css">

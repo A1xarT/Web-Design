@@ -32,57 +32,48 @@
               <input id="rememberMe" type="checkbox" v-model="rememberUser"> Remember me
             </label>
           </div>
-          <button class="w-100 btn btn-lg btn-primary" id="loginButton" type="submit" @click="add">Log in</button>
+          <button class="w-100 btn btn-lg btn-primary" id="loginButton" type="submit" @click="logUser">Log in</button>
           <p class="mt-5 mb-3 text-muted">&copy; 2021</p>
         </form>
       </main>
     </div>
-    <button class="w-100 btn" @click="getAllUsers">LOAD USER LIST</button>
-    <button class="w-100 btn" @click="showUsers">SHOW USER LIST</button>
   </div>
 </template>
 
 <script>
-import {getAllUsers} from '@/services/UserService'
+import LUser from "@/model/LUser.js";
+import {setUser} from "@/model/User.js"
 
-const rmCheck = document.getElementById("rememberMe"),
-    emailInput = document.getElementById("inputEmail");
-if (localStorage.checkbox && localStorage.checkbox !== "") {
-  rmCheck.setAttribute("checked", "checked");
-  emailInput.value = localStorage.username;
-} else {
-  rmCheck.removeAttribute("checked");
-  emailInput.value = "";
-}
 export default {
   name: 'Login',
   data() {
     return {
-      userMail: '',
+      userMail: localStorage.username,
       password: '',
-      rememberUser: false,
-      users: []
+      rememberUser: localStorage.checkbox,
     }
   },
   methods: {
     logUser() {
-
+      this.isRemembered()
+      this.users = this.$store.getters.getUserList
+      if (LUser.checkLogin(this.userMail, this.password, this.users)) {
+        setUser(this.userMail)
+        this.$router.push('/homepage')
+      } else {
+        alert('Wrong login or password')
+        this.$router.push(this.$router.currentRoute)
+      }
     },
     isRemembered() {
-
-    },
-    getAllUsers() {
-      getAllUsers().then(response => {
-        console.log(response)
-        this.users = response
-      })
-    },
-    showUsers() {
-      alert(JSON.stringify(this.users))
-    },
-  },
-  mounted() {
-    this.getAllUsers();
+      if (this.userMail && this.rememberUser) {
+        localStorage.username = this.userMail
+        localStorage.checkbox = this.rememberUser
+      } else {
+        localStorage.username = ''
+        localStorage.checkbox = ''
+      }
+    }
   }
 }
 </script>

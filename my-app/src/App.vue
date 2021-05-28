@@ -8,6 +8,9 @@
 
 export default {
   name: 'App',
+  beforeMount() {
+    this.$store.dispatch('INIT_USERS', 'backend');
+  }
 }
 </script>
 
